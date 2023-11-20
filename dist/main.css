@@ -1,0 +1,22 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
+html,
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
