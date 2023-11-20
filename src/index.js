@@ -1,2 +1,2 @@
 import "./style.css";
-import { checkInput } from "./components/new-task";
+import { taskStorage } from "./components/new-task";
