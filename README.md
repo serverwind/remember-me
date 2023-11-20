@@ -1,15 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Remember{ME}
 
-This project has been created using **webpack-cli**, you can now run
+Todo app.
 
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+In progress.
