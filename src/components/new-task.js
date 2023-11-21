@@ -29,26 +29,21 @@ function domConstructor(task, ID) {
   button.addEventListener("click", removeTask);
 
   li.appendChild(button);
-  taskList.appendChild(li)
+  taskList.appendChild(li);
 
   return console.log("dom created");
 }
 
 function removeTask() {
   const taskID = this.parentElement.getAttribute("task-id");
-  const storageLen = taskStorage.length;
+  let i = taskStorage.length;
 
-  for (let i = 0; i < storageLen; i++) {
+  while (i--) {
     if (taskID == taskStorage[i].ID) {
-      console.log(taskStorage[i])
-      console.log(i)
       taskStorage.splice(i, 1);
+      this.parentElement.remove();
     }
   }
-
-  this.parentElement.remove();
-
-  console.log(taskStorage);
 }
 
 removeButtons.forEach((button) => {
