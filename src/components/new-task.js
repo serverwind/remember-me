@@ -15,10 +15,10 @@ function storeTask(task) {
   const ID = taskStorage.length;
   taskStorage.push({ ID, task });
 
-  return domConstructor(task, ID);
+  return domConstructor(ID, task), updateDB(ID, task, true);
 }
 
-function domConstructor(task, ID) {
+function domConstructor(ID, task) {
   const li = document.createElement("li");
   li.innerHTML = task;
   li.setAttribute("task-id", ID);
@@ -43,6 +43,20 @@ function removeTask() {
       taskStorage.splice(i, 1);
       this.parentElement.remove();
     }
+  }
+  return updateDB(taskID, 0, false);
+}
+
+function updateDB(ID, task, mode) {
+  const taskData = {
+    id: ID,
+    task: task,
+  }
+
+  if (mode) {
+    localStorage.setItem(ID, JSON.stringify(taskData))
+  } else {
+    localStorage.removeItem(ID)
   }
 }
 
