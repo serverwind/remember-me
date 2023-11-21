@@ -54,9 +54,9 @@ function updateDB(ID, task, mode) {
   }
 
   if (mode) {
-    localStorage.setItem(ID, JSON.stringify(taskData))
+    localStorage.setItem(ID, JSON.stringify(taskData));
   } else {
-    localStorage.removeItem(ID)
+    localStorage.removeItem(ID);
   }
 }
 

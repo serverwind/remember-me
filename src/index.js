@@ -1,2 +1,2 @@
 import "./style.css";
-import { taskStorage } from "./components/new-task";
+import { taskStorage } from "./components/task";
