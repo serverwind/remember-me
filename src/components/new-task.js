@@ -1,10 +1,9 @@
-import {removeTask} from "./remove-task"
 import { updateDB } from "./updateDB";
+import {domConstructor} from "./loadApp"
+import tasksToLoad from "./loadApp"
 
-const taskList = document.getElementById("task-list");
 const taskInput = document.getElementById("new-task-input");
 const submitButton = document.getElementById("new-task-add");
-const taskStorage = [];
 
 function checkInput(task) {
   if (task === "") {
@@ -14,26 +13,10 @@ function checkInput(task) {
 }
 
 function storeTask(task) {
-  const ID = taskStorage.length;
-  taskStorage.push({ ID, task });
+  const ID = Math.floor(Math.random() * 999);
+  tasksToLoad.push({ ID, task });
 
   return domConstructor(ID, task), updateDB(ID, task, true);
-}
-
-function domConstructor(ID, task) {
-  const li = document.createElement("li");
-  li.innerHTML = task;
-  li.setAttribute("task-id", ID);
-
-  const button = document.createElement("button");
-  button.innerHTML = "x";
-  button.classList.add("remove-task");
-  button.addEventListener("click", removeTask);
-
-  li.appendChild(button);
-  taskList.appendChild(li);
-
-  return console.log("dom created");
 }
 
 submitButton.addEventListener("click", () => {
@@ -44,4 +27,3 @@ function showError(error) {
   console.log(error);
 }
 
-export default taskStorage;

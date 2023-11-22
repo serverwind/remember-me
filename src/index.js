@@ -1,2 +1,2 @@
 import "./style.css";
-import "./components/new-task";
+import "./components/loadApp";

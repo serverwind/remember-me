@@ -1,5 +1,3 @@
-import { ID, task, mode } from "./new-task";
-
 function updateDB(ID, task, mode) {
   const taskData = {
     id: ID,
@@ -7,9 +5,9 @@ function updateDB(ID, task, mode) {
   };
 
   if (mode) {
-    localStorage.setItem(ID, JSON.stringify(taskData));
+    localStorage.setItem(`task${ID}`, JSON.stringify(taskData));
   } else {
-    localStorage.removeItem(ID);
+    localStorage.removeItem(`task${ID}`);
   }
 }
 

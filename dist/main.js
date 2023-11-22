@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/loadApp.js":
+/*!***********************************!*\
+  !*** ./src/components/loadApp.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ tasksToLoad),\n/* harmony export */   domConstructor: () => (/* binding */ domConstructor)\n/* harmony export */ });\n/* harmony import */ var _new_task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./new-task */ \"./src/components/new-task.js\");\n/* harmony import */ var _remove_task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./remove-task */ \"./src/components/remove-task.js\");\n\n\nvar taskList = document.getElementById(\"task-list\");\nvar tasksToLoad = [];\nfunction parseStorage() {\n  var taskRegex = /\\btask(\\d+)\\b/; //task0, task1 ...\n\n  Object.keys(localStorage).forEach(function (key) {\n    if (taskRegex.test(key)) {\n      var e = JSON.parse(localStorage.getItem(key));\n      tasksToLoad.push(e);\n    }\n  });\n  return loadDom(tasksToLoad);\n}\nparseStorage();\nfunction loadDom() {\n  for (var i = 0; i < tasksToLoad.length; i++) {\n    var t = tasksToLoad[i];\n    domConstructor(t.id, t.task);\n  }\n}\nfunction domConstructor(ID, task) {\n  var li = document.createElement(\"li\");\n  li.innerHTML = task;\n  li.setAttribute(\"task-id\", ID);\n  var button = document.createElement(\"button\");\n  button.innerHTML = \"x\";\n  button.classList.add(\"remove-task\");\n  button.addEventListener(\"click\", _remove_task__WEBPACK_IMPORTED_MODULE_1__.removeTask);\n  li.appendChild(button);\n  taskList.appendChild(li);\n  return console.log(\"dom created\");\n}\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/loadApp.js?");
+
+/***/ }),
+
 /***/ "./src/components/new-task.js":
 /*!************************************!*\
   !*** ./src/components/new-task.js ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _remove_task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./remove-task */ \"./src/components/remove-task.js\");\n/* harmony import */ var _updateDB__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateDB */ \"./src/components/updateDB.js\");\n\n\nvar taskList = document.getElementById(\"task-list\");\nvar taskInput = document.getElementById(\"new-task-input\");\nvar submitButton = document.getElementById(\"new-task-add\");\nvar taskStorage = [];\nfunction checkInput(task) {\n  if (task === \"\") {\n    return showError(\"Input empty\");\n  }\n  return storeTask(task);\n}\nfunction storeTask(task) {\n  var ID = taskStorage.length;\n  taskStorage.push({\n    ID: ID,\n    task: task\n  });\n  return domConstructor(ID, task), (0,_updateDB__WEBPACK_IMPORTED_MODULE_1__.updateDB)(ID, task, true);\n}\nfunction domConstructor(ID, task) {\n  var li = document.createElement(\"li\");\n  li.innerHTML = task;\n  li.setAttribute(\"task-id\", ID);\n  var button = document.createElement(\"button\");\n  button.innerHTML = \"x\";\n  button.classList.add(\"remove-task\");\n  button.addEventListener(\"click\", _remove_task__WEBPACK_IMPORTED_MODULE_0__.removeTask);\n  li.appendChild(button);\n  taskList.appendChild(li);\n  return console.log(\"dom created\");\n}\nsubmitButton.addEventListener(\"click\", function () {\n  checkInput(taskInput.value);\n});\nfunction showError(error) {\n  console.log(error);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (taskStorage);\n\n//# sourceURL=webpack://my-webpack-project/./src/components/new-task.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _updateDB__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updateDB */ \"./src/components/updateDB.js\");\n/* harmony import */ var _loadApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loadApp */ \"./src/components/loadApp.js\");\n\n\n\nvar taskInput = document.getElementById(\"new-task-input\");\nvar submitButton = document.getElementById(\"new-task-add\");\nfunction checkInput(task) {\n  if (task === \"\") {\n    return showError(\"Input empty\");\n  }\n  return storeTask(task);\n}\nfunction storeTask(task) {\n  var ID = Math.floor(Math.random() * 999);\n  _loadApp__WEBPACK_IMPORTED_MODULE_1__[\"default\"].push({\n    ID: ID,\n    task: task\n  });\n  return (0,_loadApp__WEBPACK_IMPORTED_MODULE_1__.domConstructor)(ID, task), (0,_updateDB__WEBPACK_IMPORTED_MODULE_0__.updateDB)(ID, task, true);\n}\nsubmitButton.addEventListener(\"click\", function () {\n  checkInput(taskInput.value);\n});\nfunction showError(error) {\n  console.log(error);\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/components/new-task.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   removeTask: () => (/* binding */ removeTask)\n/* harmony export */ });\n/* harmony import */ var _new_task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./new-task */ \"./src/components/new-task.js\");\n/* harmony import */ var _updateDB__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateDB */ \"./src/components/updateDB.js\");\n\n\nvar removeButtons = document.querySelectorAll(\".remove-task\");\nfunction removeTask() {\n  var taskID = this.parentElement.getAttribute(\"task-id\");\n  var i = _new_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"].length;\n  while (i--) {\n    if (taskID == _new_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"][i].ID) {\n      _new_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"].splice(i, 1);\n      this.parentElement.remove();\n    }\n  }\n  return (0,_updateDB__WEBPACK_IMPORTED_MODULE_1__.updateDB)(taskID, 0, false);\n}\nremoveButtons.forEach(function (button) {\n  button.addEventListener(\"click\", removeTask);\n});\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/remove-task.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   removeTask: () => (/* binding */ removeTask)\n/* harmony export */ });\n/* harmony import */ var _loadApp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loadApp */ \"./src/components/loadApp.js\");\n/* harmony import */ var _updateDB__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateDB */ \"./src/components/updateDB.js\");\n\n\nvar removeButtons = document.querySelectorAll(\".remove-task\");\nfunction removeTask() {\n  var taskID = this.parentElement.getAttribute(\"task-id\");\n  var i = _loadApp__WEBPACK_IMPORTED_MODULE_0__[\"default\"].length;\n  while (i--) {\n    if (taskID == _loadApp__WEBPACK_IMPORTED_MODULE_0__[\"default\"][i].id) {\n      _loadApp__WEBPACK_IMPORTED_MODULE_0__[\"default\"].splice(i, 1);\n      this.parentElement.remove();\n    }\n  }\n  return (0,_updateDB__WEBPACK_IMPORTED_MODULE_1__.updateDB)(taskID, 0, false);\n}\nremoveButtons.forEach(function (button) {\n  button.addEventListener(\"click\", removeTask);\n});\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/remove-task.js?");
 
 /***/ }),
 
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   updateDB: () => (/* binding */ updateDB)\n/* harmony export */ });\n/* harmony import */ var _new_task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./new-task */ \"./src/components/new-task.js\");\n\nfunction updateDB(ID, task, mode) {\n  var taskData = {\n    id: ID,\n    task: task\n  };\n  if (mode) {\n    localStorage.setItem(ID, JSON.stringify(taskData));\n  } else {\n    localStorage.removeItem(ID);\n  }\n}\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/updateDB.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   updateDB: () => (/* binding */ updateDB)\n/* harmony export */ });\nfunction updateDB(ID, task, mode) {\n  var taskData = {\n    id: ID,\n    task: task\n  };\n  if (mode) {\n    localStorage.setItem(\"task\".concat(ID), JSON.stringify(taskData));\n  } else {\n    localStorage.removeItem(\"task\".concat(ID));\n  }\n}\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/updateDB.js?");
 
 /***/ }),
 
@@ -46,7 +56,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _components_new_task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/new-task */ \"./src/components/new-task.js\");\n\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _components_loadApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loadApp */ \"./src/components/loadApp.js\");\n\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ }),
 
