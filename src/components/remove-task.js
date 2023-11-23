@@ -7,10 +7,11 @@ function removeTask() {
   const taskID = this.parentElement.getAttribute("task-id");
   let i = tasksToLoad.length;
 
+  this.parentElement.remove();
+
   while (i--) {
-    if (taskID == tasksToLoad[i].id) {
+    if (taskID == tasksToLoad[i].ID) {
       tasksToLoad.splice(i, 1);
-      this.parentElement.remove();
     }
   }
   return updateDB(taskID, 0, false);
