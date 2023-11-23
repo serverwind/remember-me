@@ -2,6 +2,7 @@ import "./new-task";
 import { removeTask } from "./remove-task";
 
 const taskList = document.getElementById("task-list");
+const priority = document.getElementById('priority');
 const tasksToLoad = [];
 
 function parseStorage() {
@@ -21,14 +22,17 @@ parseStorage();
 function loadDom() {
   for (let i = 0; i < tasksToLoad.length; i++) {
     const t = tasksToLoad[i];
-    domConstructor(t.id, t.task)
+    domConstructor(t.id, t.task, t.priority)
   }
 }
 
-function domConstructor(ID, task) {
+function domConstructor(ID, task, priority) {
   const li = document.createElement("li");
   li.innerHTML = task;
   li.setAttribute("task-id", ID);
+
+  const prio = document.createElement('span');
+  prio.innerHTML = priority;
 
   const button = document.createElement("button");
   button.innerHTML = "x";
@@ -36,6 +40,7 @@ function domConstructor(ID, task) {
   button.addEventListener("click", removeTask);
 
   li.appendChild(button);
+  li.appendChild(prio);
   taskList.appendChild(li);
 
   return console.log("dom created");

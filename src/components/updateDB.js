@@ -1,7 +1,8 @@
-function updateDB(ID, task, mode) {
+function updateDB(ID, task, priority, mode) {
   const taskData = {
     id: ID,
     task: task,
+    priority: priority,
   };
 
   if (mode) {

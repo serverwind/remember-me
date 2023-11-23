@@ -10,9 +10,15 @@
     </header>
     <main>
       <h2>::Tasks</h2>
-      <ul id="task-list">
         <input id="new-task-input" type="text" /><button id="new-task-add">+</button>
-      </ul>
+        <select id="priority" name="priority">
+          <optgroup label="Priority">
+            <option value="Low">~</option>
+            <option value="Medium">!</option>
+            <option value="High">!!!</option>
+          </optgroup>
+        </select>
+      <ul id="task-list"></ul>
     </main>
     <footer>
       <ul>
