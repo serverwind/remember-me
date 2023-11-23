@@ -1,8 +1,8 @@
 import "./new-task";
+import "./date-picker"
 import { removeTask } from "./remove-task";
 
 const taskList = document.getElementById("task-list");
-const priority = document.getElementById('priority');
 const tasksToLoad = [];
 
 function parseStorage() {
