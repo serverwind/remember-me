@@ -15,7 +15,7 @@
   \***************************************/
 /***/ (() => {
 
-eval("var switcher = document.getElementById('date-picker');\nvar menu = document.getElementById('date-selector');\nswitcher.addEventListener('click', showMenu);\nfunction showMenu() {\n  switcher.classList.add('hidden');\n  menu.classList.remove('hidden');\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/components/date-picker.js?");
+eval("var switcher = document.getElementById('date-picker');\nvar menu = document.getElementById('date-selector');\nvar dateToday = document.getElementById('date-today');\nswitcher.addEventListener('click', showMenu);\nfunction showMenu() {\n  switcher.classList.add('hidden');\n  menu.classList.remove('hidden');\n}\nfunction selectDate() {\n  // need Factory Function here\n  var calendar = document.getElementById('date');\n  var date = new Date();\n  var currentDate = date.toISOString().substring(0, 10);\n  calendar.value = currentDate;\n}\ndateToday.addEventListener('click', selectDate);\n\n//# sourceURL=webpack://my-webpack-project/./src/components/date-picker.js?");
 
 /***/ }),
 
