@@ -1,21 +1,35 @@
-const switcher = document.getElementById('date-picker');
-const menu = document.getElementById('date-selector')
-const dateToday = document.getElementById('date-today');
+import calendar from "./new-task";
 
-switcher.addEventListener('click', showMenu);
+const switcher = document.getElementById("date-picker");
+const menu = document.getElementById("date-selector");
+const dateToday = document.getElementById("date-today");
+const dateTomorrow = document.getElementById("date-tomorrow");
+
+switcher.addEventListener("click", showMenu);
 
 function showMenu() {
-  switcher.classList.add('hidden');
-  menu.classList.remove('hidden')
+  switcher.classList.add("hidden");
+  menu.classList.remove("hidden");
 }
 
-function selectDate() { // need Factory Function here
-  let calendar = document.getElementById('date');
+function selectDate(day) {
   let date = new Date();
-  let currentDate = date.toISOString().substring(0,10);
+  let currentDate = date.toISOString().substring(0, 10);
 
+  if (day === "tomorrow") {
+    date = new Date(+new Date() + 86400000);
+  }
+
+  console.log(day)
+
+  currentDate = date.toISOString().substring(0, 10);
   calendar.value = currentDate;
-
 }
 
-dateToday.addEventListener('click', selectDate)
+dateToday.addEventListener("click", () => {
+  selectDate("today");
+});
+
+dateTomorrow.addEventListener("click", () => {
+  selectDate("tomorrow");
+});

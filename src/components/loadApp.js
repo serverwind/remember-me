@@ -22,17 +22,20 @@ parseStorage();
 function loadDom() {
   for (let i = 0; i < tasksToLoad.length; i++) {
     const t = tasksToLoad[i];
-    domConstructor(t.id, t.task, t.priority)
+    domConstructor(t.id, t.task, t.priority, t.date)
   }
 }
 
-function domConstructor(ID, task, priority) {
+function domConstructor(ID, task, priority, date) {
   const li = document.createElement("li");
   li.innerHTML = task;
   li.setAttribute("task-id", ID);
 
   const prio = document.createElement('span');
   prio.innerHTML = priority;
+
+  const taskDate = document.createElement('span');
+  taskDate.innerHTML = date;
 
   const button = document.createElement("button");
   button.innerHTML = "x";
@@ -41,6 +44,7 @@ function domConstructor(ID, task, priority) {
 
   li.appendChild(button);
   li.appendChild(prio);
+  li.appendChild(taskDate);
   taskList.appendChild(li);
 
   return console.log("dom created");
