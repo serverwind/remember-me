@@ -37,14 +37,14 @@ function domConstructor(ID, task, priority, date) {
   const taskDate = document.createElement('span');
   taskDate.innerHTML = date;
 
-  const button = document.createElement("button");
-  button.innerHTML = "x";
-  button.classList.add("remove-task");
-  button.addEventListener("click", removeTask);
+  const remove = document.createElement("button");
+  remove.innerHTML = "x";
+  remove.classList.add("remove-task");
+  remove.addEventListener("click", removeTask);
 
-  li.appendChild(button);
   li.appendChild(prio);
   li.appendChild(taskDate);
+  li.appendChild(remove);
   taskList.appendChild(li);
 
   return console.log("dom created");
