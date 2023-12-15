@@ -30,6 +30,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/new-proj.js":
+/*!************************************!*\
+  !*** ./src/components/new-proj.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _remove_proj__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./remove-proj */ \"./src/components/remove-proj.js\");\n\nvar newProjButton = document.getElementById('new-proj');\nvar projectList = document.getElementById('projects');\nnewProjButton.addEventListener('click', addProj);\nfunction addProj() {\n  var proj = document.createElement('li');\n  var input = document.createElement('input');\n  var remove = document.createElement('button');\n  input.value = 'New project';\n  remove.classList.add('remove-proj');\n  remove.innerHTML = 's';\n  remove.addEventListener('click', _remove_proj__WEBPACK_IMPORTED_MODULE_0__.removeProj);\n  proj.append(input, remove);\n  projectList.appendChild(proj);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addProj);\n\n//# sourceURL=webpack://my-webpack-project/./src/components/new-proj.js?");
+
+/***/ }),
+
 /***/ "./src/components/new-task.js":
 /*!************************************!*\
   !*** ./src/components/new-task.js ***!
@@ -37,6 +47,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _updateDB__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updateDB */ \"./src/components/updateDB.js\");\n/* harmony import */ var _loadApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loadApp */ \"./src/components/loadApp.js\");\n\n\n\nvar taskInput = document.getElementById(\"new-task-input\");\nvar calendar = document.getElementById('date');\nvar submitButton = document.getElementById(\"new-task-add\");\nfunction checkInput(task, priority, date) {\n  if (task === \"\") {\n    return showError(\"Input empty\");\n  }\n  return storeTask(task, priority, date);\n}\nfunction storeTask(task, priority, date) {\n  var ID = Math.floor(Math.random() * 999);\n  _loadApp__WEBPACK_IMPORTED_MODULE_1__[\"default\"].push({\n    ID: ID,\n    task: task,\n    priority: priority,\n    date: date\n  });\n  return (0,_loadApp__WEBPACK_IMPORTED_MODULE_1__.domConstructor)(ID, task, priority, date), (0,_updateDB__WEBPACK_IMPORTED_MODULE_0__.updateDB)(ID, task, priority, true, date);\n}\nsubmitButton.addEventListener(\"click\", function () {\n  checkInput(taskInput.value, priority.value, calendar.value);\n});\nfunction showError(error) {\n  console.log(error);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calendar);\n\n//# sourceURL=webpack://my-webpack-project/./src/components/new-task.js?");
+
+/***/ }),
+
+/***/ "./src/components/remove-proj.js":
+/*!***************************************!*\
+  !*** ./src/components/remove-proj.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   removeProj: () => (/* binding */ removeProj)\n/* harmony export */ });\nvar removeButtons = document.querySelectorAll('.remove-proj');\nfunction removeProj() {\n  this.parentNode.remove();\n}\nremoveButtons.forEach(function (button) {\n  button.addEventListener(\"click\", removeProj);\n});\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/remove-proj.js?");
 
 /***/ }),
 
@@ -66,7 +86,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _components_loadApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loadApp */ \"./src/components/loadApp.js\");\n\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _components_loadApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loadApp */ \"./src/components/loadApp.js\");\n/* harmony import */ var _components_new_proj__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/new-proj */ \"./src/components/new-proj.js\");\n/* harmony import */ var _components_remove_proj__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/remove-proj */ \"./src/components/remove-proj.js\");\n\n\n\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ }),
 

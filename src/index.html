@@ -10,27 +10,27 @@
     </header>
     <main>
       <h2>::Tasks</h2>
-        <input id="new-task-input" type="text" /><button id="new-task-add">+</button>
-        <select id="priority" name="priority">
-          <optgroup label="Priority">
-            <option value="Low">~</option>
-            <option value="Medium">!</option>
-            <option value="High">!!!</option>
-          </optgroup>
-        </select>
-        <button id="date-picker">D</button>
-        <div id="date-selector" class="hidden">
-          <button id="date-today">@Today</button>
-          <button id="date-tomorrow">@Tomorrow</button>
-          <input type="date" id="date">
-        </div>
-        <ul id="task-list"></ul>
+      <input id="new-task-input" type="text" /><button id="new-task-add">+</button>
+      <select id="priority" name="priority">
+        <optgroup label="Priority">
+          <option value="Low">~</option>
+          <option value="Medium">!</option>
+          <option value="High">!!!</option>
+        </optgroup>
+      </select>
+      <button id="date-picker">D</button>
+      <div id="date-selector" class="hidden">
+        <button id="date-today">@Today</button>
+        <button id="date-tomorrow">@Tomorrow</button>
+        <input type="date" id="date" />
+      </div>
+      <ul id="task-list"></ul>
     </main>
     <footer>
-      <ul>
-        <li><span>Project 1</span> <button>s</button></li>
-        <li><button>+</button></li>
+      <ul id="projects">
+        <li><span>Project 1</span> <button class="remove-proj">s</button></li>
       </ul>
+      <button id="new-proj">+</button>
     </footer>
   </body>
 </html>
