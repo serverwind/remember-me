@@ -1,4 +1,5 @@
-import { removeProj } from './remove-proj'
+import { removeProj } from "./remove-proj";
+import updateProj from "./updateProj";
 
 const newProjButton = document.getElementById("new-proj");
 const projectList = document.getElementById("projects");
@@ -21,17 +22,22 @@ function addProj() {
 }
 
 function saveProj() {
+  const ID = Math.floor(Math.random() * 999);
   let input = document.querySelector(".proj-name");
   let name = input.value;
   let parent = this.parentElement;
   
-  let span = document.createElement('span');
+  parent.setAttribute('proj-id', ID);
+
+  let span = document.createElement("span");
   span.innerHTML = name;
-  parent.prepend(span)
+  parent.prepend(span);
+
+  this.innerHTML = "x";
+  this.removeEventListener("click", saveProj);
+  this.addEventListener("click", removeProj);
 
   input.remove();
 
-  this.innerHTML = 'x';
-  this.removeEventListener('click', saveProj);
-  this.addEventListener('click', removeProj);
+  return updateProj(ID, name, true);
 }

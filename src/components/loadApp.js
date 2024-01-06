@@ -4,14 +4,23 @@ import { removeTask } from "./remove-task";
 
 const taskList = document.getElementById("task-list");
 const tasksToLoad = [];
+const projToLoad = [];
 
 function parseStorage() {
   let taskRegex = /\btask(\d+)\b/; //task0, task1 ...
+  let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
 
   Object.keys(localStorage).forEach((key) => {
     if (taskRegex.test(key)) {
       let e = JSON.parse(localStorage.getItem(key));
       tasksToLoad.push(e);
+    }
+  });
+
+  Object.keys(localStorage).forEach((key) => {
+    if (projRegex.test(key)) {
+      let e = JSON.parse(localStorage.getItem(key));
+      projToLoad.push(e);
     }
   });
 
@@ -50,4 +59,4 @@ function domConstructor(ID, task, priority, date) {
   return console.log("dom created");
 }
 
-export { domConstructor, tasksToLoad as default};
+export { domConstructor, tasksToLoad, projToLoad as default};
