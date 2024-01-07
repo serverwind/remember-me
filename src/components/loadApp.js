@@ -1,8 +1,10 @@
 import "./new-task";
 import "./date-picker"
 import { removeTask } from "./remove-task";
+import { removeProj } from "./remove-proj";
 
 const taskList = document.getElementById("task-list");
+const projList = document.getElementById("projects");
 const tasksToLoad = [];
 const projToLoad = [];
 
@@ -24,7 +26,7 @@ function parseStorage() {
     }
   });
 
-  return loadDom(tasksToLoad);
+  return loadDom(tasksToLoad, projToLoad);
 }
 parseStorage();
 
@@ -32,6 +34,11 @@ function loadDom() {
   for (let i = 0; i < tasksToLoad.length; i++) {
     const t = tasksToLoad[i];
     domConstructor(t.id, t.task, t.priority, t.date)
+  }
+
+  for (let p = 0; p < projToLoad.length; p++) {
+    const l = projToLoad[p];
+    projConstructor(l.id, l.proj);
   }
 }
 
@@ -57,6 +64,20 @@ function domConstructor(ID, task, priority, date) {
   taskList.appendChild(li);
 
   return console.log("dom created");
+}
+
+function projConstructor(ID, proj) {
+  const li = document.createElement("li");
+  li.innerHTML = proj;
+  li.setAttribute("proj-id", ID);
+
+  const remove = document.createElement("button");
+  remove.innerHTML = "x";
+  remove.classList.add("remove-proj");
+  remove.addEventListener("click", removeProj);
+
+  li.appendChild(remove);
+  projList.appendChild(li);
 }
 
 export { domConstructor, tasksToLoad, projToLoad as default};
