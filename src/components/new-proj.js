@@ -26,8 +26,8 @@ function saveProj() {
   let input = document.querySelector(".proj-name");
   let name = input.value;
   let parent = this.parentElement;
-  
-  parent.setAttribute('proj-id', ID);
+
+  parent.setAttribute("proj-id", ID);
 
   let span = document.createElement("span");
   span.innerHTML = name;

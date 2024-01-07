@@ -15,12 +15,11 @@ main {
   margin: 0 auto;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
 .hidden {
   display: none;
+}
+
+.chosen-proj {
+  font-weight: bold;
 }
 

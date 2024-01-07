@@ -1,9 +1,9 @@
 import { updateDB } from "./updateDB";
-import {domConstructor} from "./loadApp"
-import tasksToLoad from "./loadApp"
+import { domConstructor } from "./loadApp";
+import tasksToLoad from "./loadApp";
 
 const taskInput = document.getElementById("new-task-input");
-const calendar = document.getElementById('date');
+const calendar = document.getElementById("date");
 const submitButton = document.getElementById("new-task-add");
 
 function checkInput(task, priority, date) {
@@ -15,10 +15,11 @@ function checkInput(task, priority, date) {
 
 function storeTask(task, priority, date) {
   const ID = Math.floor(Math.random() * 999);
+  const projID = document.querySelector('.chosen-proj').getAttribute('proj-id');
 
   tasksToLoad.push({ ID, task, priority, date });
 
-  return domConstructor(ID, task, priority, date), updateDB(ID, task, priority, true, date);
+  return domConstructor(ID, task, priority, date), updateDB(ID, task, priority, true, date, projID);
 }
 
 submitButton.addEventListener("click", () => {
@@ -29,4 +30,4 @@ function showError(error) {
   console.log(error);
 }
 
-export default calendar
+export default calendar;
