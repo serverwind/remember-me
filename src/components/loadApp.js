@@ -5,19 +5,29 @@ import { removeProj } from "./remove-proj";
 
 const taskList = document.getElementById("task-list");
 const projList = document.getElementById("projects");
-const tasksToLoad = [];
 const projToLoad = [];
 
-function parseStorage() {
+function loadTasks() {
+  const tasksToLoad = [];
+  taskList.innerHTML = ''; //temporal decision, need to create garbage bin for this.
   let taskRegex = /\btask(\d+)\b/; //task0, task1 ...
-  let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
-
   Object.keys(localStorage).forEach((key) => {
     if (taskRegex.test(key)) {
       let e = JSON.parse(localStorage.getItem(key));
       tasksToLoad.push(e);
     }
   });
+console.log(tasksToLoad)
+  for (let i = 0; i < tasksToLoad.length; i++) {
+    const t = tasksToLoad[i];
+    if (t.projID == document.querySelector('.chosen-proj').getAttribute('proj-id')) {
+      domConstructor(t.id, t.task, t.priority, t.date)
+    }
+  }
+} loadTasks()
+
+function loadProj() {
+  let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
 
   Object.keys(localStorage).forEach((key) => {
     if (projRegex.test(key)) {
@@ -25,22 +35,11 @@ function parseStorage() {
       projToLoad.push(e);
     }
   });
-
-  return loadDom(tasksToLoad, projToLoad);
-}
-parseStorage();
-
-function loadDom() {
-  for (let i = 0; i < tasksToLoad.length; i++) {
-    const t = tasksToLoad[i];
-    domConstructor(t.id, t.task, t.priority, t.date)
-  }
-
   for (let p = 0; p < projToLoad.length; p++) {
     const l = projToLoad[p];
     projConstructor(l.id, l.proj);
   }
-}
+} loadProj()
 
 function domConstructor(ID, task, priority, date) {
   const li = document.createElement("li");
@@ -80,4 +79,4 @@ function projConstructor(ID, proj) {
   projList.appendChild(li);
 }
 
-export { domConstructor, tasksToLoad, projToLoad as default};
+export { domConstructor, loadTasks, taskList, projToLoad as default};

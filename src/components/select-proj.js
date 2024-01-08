@@ -1,9 +1,13 @@
+import { loadTasks } from './loadApp'
+
 const allProjects = document.querySelectorAll("#projects > li");
 
 function selectProj() {
   let selectedProj = document.querySelector('.chosen-proj');
   selectedProj.classList.remove('chosen-proj')
   this.classList.add('chosen-proj');
+
+  loadTasks()
 }
 
 allProjects.forEach((project) => {
