@@ -76,7 +76,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   selectProj: () => (/* binding */ selectProj)\n/* harmony export */ });\nvar allProjects = document.querySelectorAll(\"#projects > li\");\nvar projLen = allProjects.length;\nfunction selectProj() {\n  for (var i = 0; i < projLen; i++) {\n    if (allProjects[i].classList.contains(\"chosen-proj\")) {\n      allProjects[i].classList.remove(\"chosen-proj\");\n    }\n  }\n  this.classList.add('chosen-proj');\n}\nallProjects.forEach(function (project) {\n  project.addEventListener(\"click\", selectProj);\n});\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/select-proj.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   selectProj: () => (/* binding */ selectProj)\n/* harmony export */ });\nvar allProjects = document.querySelectorAll(\"#projects > li\");\nfunction selectProj() {\n  var selectedProj = document.querySelector('.chosen-proj');\n  selectedProj.classList.remove('chosen-proj');\n  this.classList.add('chosen-proj');\n}\nallProjects.forEach(function (project) {\n  project.addEventListener(\"click\", selectProj);\n});\n\n\n//# sourceURL=webpack://my-webpack-project/./src/components/select-proj.js?");
 
 /***/ }),
 
