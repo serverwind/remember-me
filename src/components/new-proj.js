@@ -1,8 +1,10 @@
 import { removeProj } from "./remove-proj";
 import updateProj from "./updateProj";
+import { selectProj } from "./select-proj";
 
 const newProjButton = document.getElementById("new-proj");
 const projectList = document.getElementById("projects");
+const allProjects = document.querySelectorAll("#projects > li");
 
 newProjButton.addEventListener("click", addProj);
 
@@ -31,6 +33,7 @@ function saveProj() {
 
   let span = document.createElement("span");
   span.innerHTML = name;
+  span.addEventListener('click', selectProj);
   parent.prepend(span);
 
   this.innerHTML = "x";
@@ -41,3 +44,7 @@ function saveProj() {
 
   return updateProj(ID, name, true);
 }
+
+allProjects.forEach((project) => {
+  project.addEventListener("click", selectProj);
+});

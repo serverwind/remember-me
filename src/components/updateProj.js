@@ -8,7 +8,6 @@ function updateProj(ID, proj, mode) {
     localStorage.setItem(`proj${ID}`, JSON.stringify(projData));
   } else {
     localStorage.removeItem(`proj${ID}`);
-    console.log(ID)
   }
 }
 

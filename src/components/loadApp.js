@@ -5,7 +5,7 @@ import { removeProj } from "./remove-proj";
 
 const taskList = document.getElementById("task-list");
 const projList = document.getElementById("projects");
-const projToLoad = [];
+let projToLoad = [];
 
 function loadTasks() {
   const tasksToLoad = [];
@@ -17,7 +17,7 @@ function loadTasks() {
       tasksToLoad.push(e);
     }
   });
-console.log(tasksToLoad)
+
   for (let i = 0; i < tasksToLoad.length; i++) {
     const t = tasksToLoad[i];
     if (t.projID == document.querySelector('.chosen-proj').getAttribute('proj-id')) {
@@ -28,6 +28,7 @@ console.log(tasksToLoad)
 
 function loadProj() {
   let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
+  projToLoad = [];
 
   Object.keys(localStorage).forEach((key) => {
     if (projRegex.test(key)) {
