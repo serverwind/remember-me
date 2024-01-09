@@ -4,7 +4,6 @@ import { selectProj } from "./select-proj";
 
 const newProjButton = document.getElementById("new-proj");
 const projectList = document.getElementById("projects");
-const allProjects = document.querySelectorAll("#projects > li");
 
 newProjButton.addEventListener("click", addProj);
 
@@ -45,6 +44,3 @@ function saveProj() {
   return updateProj(ID, name, true);
 }
 
-allProjects.forEach((project) => {
-  project.addEventListener("click", selectProj);
-});

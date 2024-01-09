@@ -68,14 +68,16 @@ function domConstructor(ID, task, priority, date) {
 
 function projConstructor(ID, proj) {
   const li = document.createElement("li");
-  li.innerHTML = proj;
+  const span = document.createElement('span')
   li.setAttribute("proj-id", ID);
+  span.innerHTML = proj;
 
   const remove = document.createElement("button");
   remove.innerHTML = "x";
   remove.classList.add("remove-proj");
   remove.addEventListener("click", removeProj);
 
+  li.appendChild(span);
   li.appendChild(remove);
   projList.appendChild(li);
 }
