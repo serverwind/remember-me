@@ -69,7 +69,7 @@ function domConstructor(ID, task, priority, date) {
 function projConstructor(ID, proj) {
   const li = document.createElement("li");
   const span = document.createElement('span')
-  li.setAttribute("proj-id", ID);
+  span.setAttribute("proj-id", ID);
   span.innerHTML = proj;
 
   const remove = document.createElement("button");

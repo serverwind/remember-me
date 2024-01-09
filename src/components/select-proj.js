@@ -14,3 +14,4 @@ allProjects.forEach((project) => {
   project.addEventListener("click", selectProj);
 });
 
+export { selectProj }

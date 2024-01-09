@@ -28,10 +28,9 @@ function saveProj() {
   let name = input.value;
   let parent = this.parentElement;
 
-  parent.setAttribute("proj-id", ID);
-
   let span = document.createElement("span");
   span.innerHTML = name;
+  span.setAttribute("proj-id", ID);
   span.addEventListener('click', selectProj);
   parent.prepend(span);
 
