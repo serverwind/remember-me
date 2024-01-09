@@ -7,6 +7,22 @@ const taskList = document.getElementById("task-list");
 const projList = document.getElementById("projects");
 let projToLoad = [];
 
+function loadProj() {
+  let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
+  projToLoad = [];
+
+  Object.keys(localStorage).forEach((key) => {
+    if (projRegex.test(key)) {
+      let e = JSON.parse(localStorage.getItem(key));
+      projToLoad.push(e);
+    }
+  });
+  for (let p = 0; p < projToLoad.length; p++) {
+    const l = projToLoad[p];
+    projConstructor(l.id, l.proj);
+  }
+} loadProj()
+
 function loadTasks() {
   const tasksToLoad = [];
   taskList.innerHTML = ''; //temporal decision, need to create garbage bin for this.
@@ -25,22 +41,6 @@ function loadTasks() {
     }
   }
 } loadTasks()
-
-function loadProj() {
-  let projRegex = /\bproj(\d+)\b/; //proj0, proj1 ...
-  projToLoad = [];
-
-  Object.keys(localStorage).forEach((key) => {
-    if (projRegex.test(key)) {
-      let e = JSON.parse(localStorage.getItem(key));
-      projToLoad.push(e);
-    }
-  });
-  for (let p = 0; p < projToLoad.length; p++) {
-    const l = projToLoad[p];
-    projConstructor(l.id, l.proj);
-  }
-} loadProj()
 
 function domConstructor(ID, task, priority, date) {
   const li = document.createElement("li");

@@ -4,8 +4,8 @@ import updateProj from "./updateProj";
 const removeButtons = document.querySelectorAll(".remove-proj");
 
 function removeProj() {
-  const defaultProj = document.querySelector('.default-proj');
-  const projID = this.parentElement.getAttribute("proj-id");
+  const defaultProj = document.querySelector('.default-proj > span');
+  const projID = this.parentElement.firstChild.getAttribute("proj-id");
   let i = projToLoad.length;
   
   this.parentElement.remove();
@@ -16,7 +16,7 @@ function removeProj() {
       projToLoad.splice(i, 1);
     }
   }
-  return updateProj(projID, 0, false)
+  updateProj(projID, 0, false)
 }
 
 removeButtons.forEach((button) => {
