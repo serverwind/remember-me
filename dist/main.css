@@ -1,13 +1,28 @@
 /*!*****************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
   \*****************************************************************/
-html,
+:root {
+  --white: #DAE3E5;
+  --light: #BBD1EA;
+  --light2: #A1C6EA;
+  --blue: #507DBC;
+  --dark: #04080F;
+}
+
 body {
   margin: 0;
+  background-color: var(--white)
+}
+
+header {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 2rem 0;
 }
 
 h1 {
   text-align: center;
+  margin-top: 0;
 }
 
 main {
@@ -17,6 +32,19 @@ main {
 
 .hidden {
   display: none;
+}
+
+#projects {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+#projects li {
+  border: 1px solid var(--light);
+  padding: 5px 7px;
+  background-color: var(--dark);
+  color: var(--light)
 }
 
 .chosen-proj {

@@ -10,6 +10,10 @@
     </header>
     <main>
       <h2>::Tasks</h2>
+      <ul id="projects">
+        <li class="default-proj" ><span class="chosen-proj" proj-id="0">Default</span></li>
+      </ul>
+      <button id="new-proj">+</button>
       <input id="new-task-input" type="text" /><button id="new-task-add">+</button>
       <select id="priority" name="priority">
         <optgroup label="Priority">
@@ -24,10 +28,6 @@
         <button id="date-tomorrow">@Tomorrow</button>
         <input type="date" id="date" />
       </div>
-      <ul id="projects">
-        <li class="default-proj" ><span class="chosen-proj" proj-id="0">Default</span></li>
-      </ul>
-      <button id="new-proj">+</button>
       <ul id="task-list"></ul>
     </main>
   </body>
