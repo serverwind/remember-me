@@ -1,30 +1,59 @@
 :root {
-  --white: #DAE3E5;
-  --light: #BBD1EA;
-  --light2: #A1C6EA;
-  --blue: #507DBC;
-  --dark: #04080F;
+  --bright: #fefefe;
+  --second-light: #3f3f3f;
+  --second-dark: #333333;
+  --dark: #222222;
+
+  --small: 0.85rem;
+  --normal: 1rem;
+  --medium: 2rem;
+  --large: 2.8rem;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 0
 }
 
 body {
   margin: 0;
-  background-color: var(--white)
+  background-color: var(--dark);
+  color: var(--bright);
+  font-family: "Changa", sans-serif;
 }
 
 header {
-  background-color: var(--dark);
-  color: var(--light);
-  padding: 2rem 0;
+  background-color: var(--second-dark);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 15px;
 }
 
 h1 {
-  text-align: center;
-  margin-top: 0;
+  margin: 0;
+  background-color: var(--second-light);
+  color: var(--bright);
+  padding: 15px;
+  display: inline-block;
+  font-size: var(--normal);
+}
+
+.promo {
+  font-size: var(--small);
+  font-style: italic;
+  margin: 0;
 }
 
 main {
   max-width: 80%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px;
 }
 
 .hidden {
@@ -32,18 +61,45 @@ main {
 }
 
 #projects {
-  display: flex;
-  gap: 10px;
+  padding-left: 0;
   list-style: none;
 }
 
 #projects li {
-  border: 1px solid var(--light);
-  padding: 5px 7px;
-  background-color: var(--dark);
-  color: var(--light)
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background-color: var(--second-dark);
 }
 
 .chosen-proj {
   font-weight: bold;
+}
+
+#new-proj {
+  background-color: var(--second-light);
+  border: 0;
+  border-radius: 5px;
+  font-size: var(--small)
+}
+
+input {
+  background-color: var(--second-light);
+  padding: 5px;
+  border: 1px solid var(--second-light);
+  margin-right: 5px;
+}
+
+#new-task-add,
+#priority,
+#date-picker {
+  padding: 5px 10px;
+  background-color: var(--bright);
+  border: 0;
+}
+
+.remove-proj {
+  border: 0;
+  background-color: var(--second-dark);
+  margin-left: 5px;
+  color: var(--dark);
 }
