@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html><head><script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+<html>
   <head>
     <meta charset="utf-8" />
     <title>::RememberMe::</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;400;700&display=swap" rel="stylesheet" />
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+  <body>
     <header>
       <h1>::RM::</h1>
       <p class="promo">Simple Todo App to plan your day.</p>
     </header>
     <main>
       <section class="tasks">
-        <h2>::Tasks</h2>
-        <input id="new-task-input" type="text" /><button id="new-task-add">+</button>
-        <select id="priority" name="priority">
-          <optgroup label="Priority">
-            <option value="Low">~</option>
-            <option value="Medium">!</option>
-            <option value="High">!!!</option>
-          </optgroup>
-        </select>
-        <button id="date-picker">D</button>
+        <h2><span class="material-icons">task_alt</span>Tasks</h2>
+        <div class="input-wrapper">
+          <input id="new-task-input" type="text" /><button id="new-task-add"><span class="material-icons">add</span></button>
+          <select id="priority" name="priority">
+            <optgroup label="Priority">
+              <option value="Low">~</option>
+              <option value="Medium">!</option>
+              <option value="High">!!!</option>
+            </optgroup>
+          </select>
+          <button id="date-picker"><span class="material-icons">calendar_month</span></button>
+        </div>
         <div id="date-selector" class="hidden">
           <button id="date-today">@Today</button>
           <button id="date-tomorrow">@Tomorrow</button>
@@ -30,11 +34,11 @@
         <ul id="task-list"></ul>
       </section>
       <section class="sidebar">
-        <h2>::Lists</h2>
+        <h2><span class="material-icons">task</span>Lists</h2>
         <ul id="projects">
           <li class="default-proj"><span class="chosen-proj" proj-id="0">Default</span></li>
         </ul>
-        <button id="new-proj"> <box-icon name='plus'></box-icon> </button>
+        <button id="new-proj"><span class="material-icons">add</span></button>
       </section>
     </main>
   </body>

@@ -13,6 +13,40 @@
   --large: 2.8rem;
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(f20305dee9d396fea5c7.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -56,7 +90,7 @@ main {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 0.3fr;
-  gap: 5px;
+  column-gap: 20px;
 }
 
 .hidden {
@@ -79,9 +113,7 @@ main {
 }
 
 #new-proj {
-  background-color: var(--second-light);
   border: 0;
-  border-radius: 5px;
   font-size: var(--small)
 }
 
@@ -90,7 +122,6 @@ input {
   color: var(--bright);
   padding: 5px;
   border: 1px solid var(--second-light);
-  margin-right: 5px;
 }
 
 #new-task-add,
@@ -111,5 +142,19 @@ input {
 #task-list {
   list-style: none;
   padding-left: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 5px;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+}
+
+#new-task-input {
+  flex-grow: 2;
 }
 
