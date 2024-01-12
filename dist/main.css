@@ -55,7 +55,7 @@ main {
   max-width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 0.3fr;
   gap: 5px;
 }
 
@@ -92,9 +92,13 @@ input {
   margin-right: 5px;
 }
 
+#new-task-input {
+  max-width: 70%;
+}
+
 #new-task-add,
 #priority,
-#date-picker {
+#date-picker, #date-today, #date-tomorrow, #date {
   padding: 5px 10px;
   background-color: var(--bright);
   border: 0;
@@ -105,5 +109,10 @@ input {
   background-color: var(--second-dark);
   margin-left: 5px;
   color: var(--dark);
+}
+
+#task-list {
+  list-style: none;
+  padding-left: 0;
 }
 
