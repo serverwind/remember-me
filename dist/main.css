@@ -87,13 +87,10 @@ main {
 
 input {
   background-color: var(--second-light);
+  color: var(--bright);
   padding: 5px;
   border: 1px solid var(--second-light);
   margin-right: 5px;
-}
-
-#new-task-input {
-  max-width: 70%;
 }
 
 #new-task-add,
