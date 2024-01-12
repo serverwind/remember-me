@@ -51,17 +51,21 @@ function domConstructor(ID, task, priority, date) {
 
   const prio = document.createElement('span');
   prio.classList.add('task-priority');
-  prio.innerHTML = `Priority: ${priority}`;
+  prio.innerHTML = `Priority: ${priority}.`;
 
   const taskDate = document.createElement('span');
   taskDate.classList.add('task-date');
   taskDate.innerHTML = `Date: ${date}`;
 
+  const iconRemove = document.createElement('span');
+  iconRemove.classList.add('material-icons')
+  iconRemove.innerHTML = 'motion_photos_on';
+
   const remove = document.createElement("button");
-  remove.innerHTML = "x";
   remove.classList.add("remove-task");
   remove.addEventListener("click", removeTask);
 
+  remove.appendChild(iconRemove);
   li.appendChild(remove);
   li.appendChild(span);
   li.appendChild(prio);
@@ -74,14 +78,17 @@ function domConstructor(ID, task, priority, date) {
 function projConstructor(ID, proj) {
   const li = document.createElement("li");
   const span = document.createElement('span')
+  const iconRemove = document.createElement('span');
   span.setAttribute("proj-id", ID);
   span.innerHTML = proj;
+  iconRemove.classList.add('material-icons')
+  iconRemove.innerHTML = 'close';
 
   const remove = document.createElement("button");
-  remove.innerHTML = "x";
   remove.classList.add("remove-proj");
   remove.addEventListener("click", removeProj);
 
+  remove.appendChild(iconRemove);
   li.appendChild(span);
   li.appendChild(remove);
   projList.appendChild(li);

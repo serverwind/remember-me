@@ -14,19 +14,17 @@
 }
 
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(f20305dee9d396fea5c7.ttf) format('truetype');
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(f20305dee9d396fea5c7.ttf) format("truetype");
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -44,15 +42,11 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Support for IE. */
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 200,
-  'GRAD' 0,
-  'opsz' 0
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 0;
 }
 
 body {
@@ -106,6 +100,15 @@ main {
   padding: 5px 10px;
   margin-bottom: 5px;
   background-color: var(--second-dark);
+  transition: 0.2s;
+}
+
+#projects li:hover {
+  background-color: var(--second-light)
+}
+
+#projects li span {
+  cursor: pointer;
 }
 
 .chosen-proj {
@@ -114,7 +117,8 @@ main {
 
 #new-proj {
   border: 0;
-  font-size: var(--small)
+  font-size: var(--small);
+  cursor: pointer;
 }
 
 input {
@@ -126,22 +130,54 @@ input {
 
 #new-task-add,
 #priority,
-#date-picker, #date-today, #date-tomorrow, #date {
+#date-picker,
+#date-today,
+#date-tomorrow,
+#date {
   padding: 5px 10px;
   background-color: var(--bright);
+  color: var(--dark);
   border: 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#new-task-add:hover,
+#priority:hover,
+#date-picker:hover,
+#date-today:hover,
+#date-tomorrow:hover,
+#date:hover {
+  opacity: 0.8;
 }
 
 .remove-proj {
   border: 0;
-  background-color: var(--second-dark);
+  background-color: transparent;
   margin-left: 5px;
   color: var(--dark);
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.remove-proj:hover {
+  background-color: var(--second-dark)
 }
 
 #task-list {
   list-style: none;
   padding-left: 0;
+}
+
+#task-list li {
+  display: flex;
+  gap: 5px;
+  transition: 0.2s;
+}
+
+#task-list li:hover {
+  background-color: var(--second-dark);
 }
 
 .input-wrapper {
@@ -156,5 +192,54 @@ h2 {
 
 #new-task-input {
   flex-grow: 2;
+  transition: 0.2s;
+}
+
+#new-task-input:hover {
+  background-color: var(--second-dark);
+}
+
+.remove-task {
+  background-color: transparent;
+  border: 0;
+}
+
+.remove-task span {
+  vertical-align: middle;
+  color: var(--bright);
+  cursor: pointer;
+}
+
+.remove-proj span {
+  vertical-align: middle;
+  color: var(--bright);
+  cursor: pointer;
+  font-size:20px;
+}
+
+.single-task {
+  flex-grow: 2;
+}
+
+.task-priority,
+.task-date {
+  color: var(--second-light);
+}
+
+#date-selector {
+  margin-top: 3px;
+}
+
+footer {
+  background-color: var(--second-dark);
+  text-align: center;
+  margin-top: 3rem;
+  padding: 15px 0;
+}
+
+.save-proj {
+  background: var(--bright);
+  border: 0;
+  vertical-align: middle;
 }
 

@@ -11,13 +11,16 @@ function addProj() {
   let proj = document.createElement("li");
   let input = document.createElement("input");
   let save = document.createElement("button");
+  let saveIcon = document.createElement('span');
 
   input.value = "New project";
   input.classList.add("proj-name");
   save.classList.add("save-proj");
-  save.innerHTML = "s";
   save.addEventListener("click", saveProj);
+  saveIcon.classList.add('material-icons');
+  saveIcon.innerHTML = 'done';
 
+  save.append(saveIcon);
   proj.append(input, save);
   projectList.appendChild(proj);
 }
