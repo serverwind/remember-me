@@ -44,23 +44,28 @@ function loadTasks() {
 
 function domConstructor(ID, task, priority, date) {
   const li = document.createElement("li");
-  li.innerHTML = task;
+  const span = document.createElement("span");
+  span.innerHTML = task;
+  span.classList.add('single-task');
   li.setAttribute("task-id", ID);
 
   const prio = document.createElement('span');
-  prio.innerHTML = priority;
+  prio.classList.add('task-priority');
+  prio.innerHTML = `Priority: ${priority}`;
 
   const taskDate = document.createElement('span');
-  taskDate.innerHTML = date;
+  taskDate.classList.add('task-date');
+  taskDate.innerHTML = `Date: ${date}`;
 
   const remove = document.createElement("button");
   remove.innerHTML = "x";
   remove.classList.add("remove-task");
   remove.addEventListener("click", removeTask);
 
+  li.appendChild(remove);
+  li.appendChild(span);
   li.appendChild(prio);
   li.appendChild(taskDate);
-  li.appendChild(remove);
   taskList.appendChild(li);
 
   return console.log("dom created");
