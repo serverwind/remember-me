@@ -239,3 +239,16 @@ footer {
   border: 0;
   vertical-align: middle;
 }
+
+@media only screen and (max-width: 750px) {
+ main {
+    grid-template-columns: 1fr;
+    max-width: 98%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #new-task-add, #priority, #date-picker, #date-today, #date-tomorrow, #date {
+  padding: 2px;
+  }
+}
