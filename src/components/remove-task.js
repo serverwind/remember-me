@@ -7,7 +7,7 @@ function removeTask() {
   const taskID = this.parentElement.getAttribute("task-id");
   let i = tasksToLoad.length;
 
-  this.parentElement.remove();
+  this.parentElement.classList.add('removed');
 
   while (i--) {
     if (taskID == tasksToLoad[i].ID) {

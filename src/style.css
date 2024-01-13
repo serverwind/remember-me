@@ -240,6 +240,12 @@ footer {
   vertical-align: middle;
 }
 
+.removed {
+  opacity:0.5;
+  text-decoration: line-through;
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 750px) {
  main {
     grid-template-columns: 1fr;
