@@ -260,5 +260,13 @@ footer {
   #new-task-add, #priority, #date-picker, #date-today, #date-tomorrow, #date {
   padding: 2px;
   }
+  #task-list li {
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--second-dark);
+  }
+  .single-task {
+    width: 80%;
+  }
 }
 
